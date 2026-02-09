@@ -1,0 +1,17 @@
+
+html{scroll-behavior:smooth}
+.card:hover{transform:translateY(-4px);box-shadow:0 12px 30px rgba(2,6,23,.18)}
+.gradient-bg{background:linear-gradient(120deg,#0ea5e9 0%,#1f2937 30%,#0ea5e9 100%);background-size:200% 200%;animation:move 10s ease infinite}
+@keyframes move{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+nav a[data-nav]{color:rgb(71 85 105)}
+nav a[data-nav].active{color:rgb(2 132 199);font-weight:600}
+
+
+/* Simple horizontal scroll animation for logo carousel */
+@keyframes scrollLeft {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.animate-scroll-slow {
+  animation: scrollLeft 18s linear infinite;
+}
