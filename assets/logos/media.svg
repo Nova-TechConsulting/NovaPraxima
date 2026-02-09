@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="180" height="60" viewBox="0 0 360 120">
+  <rect rx="16" ry="16" x="1" y="1" width="358" height="118" fill="#FFFFFF" stroke="#E5E7EB"/>
+  
+    <g transform="translate(150,26)">
+      <rect x="0" y="0" width="60" height="56" rx="10" fill="none" stroke="#0EA5E9" stroke-width="6"/>
+      <polygon points="24,14 24,42 44,28" fill="#0EA5E9"/>
+    </g><text x="50%" y="84%" font-family="Inter, Arial" font-size="36" text-anchor="middle" fill="#0F172A">Media</text>
+</svg>

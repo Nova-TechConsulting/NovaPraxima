@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="180" height="60" viewBox="0 0 360 120">
+  <rect rx="16" ry="16" x="1" y="1" width="358" height="118" fill="#FFFFFF" stroke="#E5E7EB"/>
+  
+    <g transform="translate(150,30)">
+      <rect x="0" y="0" width="60" height="50" rx="6" ry="6" fill="none" stroke="#0EA5E9" stroke-width="6"/>
+      <path d="M30 0 v50" stroke="#0EA5E9" stroke-width="6"/>
+      <path d="M-18 8 q18 -8 36 0" fill="none" stroke="#0EA5E9" stroke-width="6" transform="translate(18,0)"/>
+    </g><text x="50%" y="84%" font-family="Inter, Arial" font-size="36" text-anchor="middle" fill="#0F172A">Education</text>
+</svg>
