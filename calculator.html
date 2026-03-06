@@ -1,0 +1,459 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ROI Savings Calculator — NovaPraxima</title>
+  <meta name="description" content="See what manual processes are really costing you — and what it would take to automate them with NovaPraxima." />
+  <link rel="icon" href="assets/logos/myLogo.jpg">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="assets/site.css" />
+  <script defer src="assets/site.js"></script>
+  <style>
+    .cta-gradient { background: radial-gradient(1200px 600px at 10% -20%, rgba(56,189,248,.25), transparent), radial-gradient(1000px 600px at 90% 120%, rgba(14,165,233,.2), transparent); }
+    .input-field {
+      width: 100%;
+      border: 1px solid #e2e8f0;
+      border-radius: 0.75rem;
+      padding: 0.625rem 0.875rem;
+      font-size: 0.95rem;
+      color: #1e293b;
+      background: #fff;
+      outline: none;
+      transition: border-color 0.15s;
+    }
+    .input-field:focus { border-color: #0ea5e9; box-shadow: 0 0 0 3px rgba(14,165,233,0.12); }
+    .input-prefix {
+      position: absolute;
+      left: 0.875rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #64748b;
+      font-size: 0.95rem;
+      pointer-events: none;
+    }
+    .has-prefix { padding-left: 1.75rem !important; }
+    .result-card-highlight {
+      background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
+      color: #fff;
+      border: none;
+    }
+    .result-card-highlight .label { color: rgba(255,255,255,0.85); }
+    .result-card-highlight .value { color: #fff; }
+    .result-zero { color: #94a3b8; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+    .fade-in { animation: fadeIn 0.35s ease; }
+  </style>
+</head>
+
+<body class="text-slate-800 antialiased">
+
+  <!-- Header -->
+  <header class="sticky top-0 z-50 bg-white/80 backdrop-blur border-b border-slate-200">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
+      <a href="index.html" class="flex items-center gap-2 font-semibold text-slate-900">
+        <img src="assets/logos/myLogo.jpg" alt="NovaPraxima Consulting" class="h-8 w-8"/> <span>NovaPraxima Consulting</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-6 text-sm">
+        <a data-nav href="services.html">Services</a>
+        <a data-nav href="industries.html">Industries</a>
+        <a data-nav href="approach.html">Approach</a>
+        <a data-nav href="about.html">About</a>
+        <a data-nav href="careers.html">Careers</a>
+        <a data-nav href="calculator.html" class="text-sky-600 font-semibold">ROI Calculator</a>
+        <a data-nav href="contact.html" class="inline-flex items-center rounded-xl border border-slate-300 px-3 py-2 hover:border-sky-600 hover:text-sky-600">Contact</a>
+      </nav>
+      <button id="menuBtn" class="md:hidden inline-flex items-center justify-center p-2 rounded-lg border border-slate-300" aria-label="Open menu">☰</button>
+    </div>
+    <div id="mobileMenu" class="md:hidden hidden border-t border-slate-200">
+      <div class="px-4 py-3 grid gap-2 text-sm">
+        <a data-nav href="services.html" class="py-2">Services</a>
+        <a data-nav href="industries.html" class="py-2">Industries</a>
+        <a data-nav href="approach.html" class="py-2">Approach</a>
+        <a data-nav href="about.html" class="py-2">About</a>
+        <a data-nav href="careers.html" class="py-2">Careers</a>
+        <a data-nav href="calculator.html" class="py-2 font-semibold text-sky-600">ROI Calculator</a>
+        <a data-nav href="contact.html" class="py-2 font-medium text-sky-700">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="gradient-bg text-white">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
+      <div class="max-w-3xl">
+        <p class="text-sm uppercase tracking-widest text-sky-200 mb-3">Free ROI Calculator</p>
+        <h1 class="text-3xl sm:text-4xl font-extrabold leading-tight">
+          See What Manual Work Is <span class="underline decoration-sky-300/60">Really Costing You</span>
+        </h1>
+        <p class="mt-4 text-lg text-sky-100">
+          Enter a few numbers about your current operations. In seconds, see your annual cost of doing nothing — and what it would look like to automate with NovaPraxima.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Calculator -->
+  <section class="py-16 bg-slate-50">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="grid gap-8 lg:grid-cols-2 lg:items-start">
+
+        <!-- ── LEFT: Inputs ── -->
+        <div class="rounded-2xl border border-slate-200 bg-white p-6 sm:p-8 shadow-sm">
+          <h2 class="text-xl font-bold text-slate-900">Your Current Situation</h2>
+          <p class="mt-1 text-sm text-slate-500">Fill in the fields below — results update instantly.</p>
+
+          <div class="mt-6 grid gap-5">
+
+            <!-- Monthly revenue lost -->
+            <div>
+              <label for="monthlyLost" class="block text-sm font-medium text-slate-700 mb-1">
+                Monthly revenue lost to manual processes
+              </label>
+              <p class="text-xs text-slate-500 mb-2">Include lost deals, customer churn, error rework, refunds, and missed opportunities due to slow or manual operations.</p>
+              <div class="relative">
+                <span class="input-prefix">$</span>
+                <input
+                  id="monthlyLost"
+                  type="number"
+                  min="0"
+                  placeholder="e.g. 20000"
+                  class="input-field has-prefix"
+                  oninput="calculate()"
+                />
+              </div>
+            </div>
+
+            <!-- Hours per week -->
+            <div>
+              <label for="hoursWeek" class="block text-sm font-medium text-slate-700 mb-1">
+                Hours per week spent on manual tasks <span class="font-normal text-slate-400">(per employee)</span>
+              </label>
+              <p class="text-xs text-slate-500 mb-2">Think data entry, copy-paste work, manual reporting, approval routing, email triage, etc.</p>
+              <input
+                id="hoursWeek"
+                type="number"
+                min="0"
+                placeholder="e.g. 20"
+                class="input-field"
+                oninput="calculate()"
+              />
+            </div>
+
+            <!-- Employee count -->
+            <div>
+              <label for="employeeCount" class="block text-sm font-medium text-slate-700 mb-1">
+                Number of employees doing this work
+              </label>
+              <input
+                id="employeeCount"
+                type="number"
+                min="0"
+                placeholder="e.g. 5"
+                class="input-field"
+                oninput="calculate()"
+              />
+            </div>
+
+            <!-- Hourly rate -->
+            <div>
+              <label for="hourlyRate" class="block text-sm font-medium text-slate-700 mb-1">
+                Average fully-loaded hourly cost per employee
+              </label>
+              <p class="text-xs text-slate-500 mb-2">Salary + benefits + overhead. A $70k/yr employee costs roughly $50–$55/hr fully loaded.</p>
+              <div class="relative">
+                <span class="input-prefix">$</span>
+                <input
+                  id="hourlyRate"
+                  type="number"
+                  min="0"
+                  placeholder="e.g. 50"
+                  class="input-field has-prefix"
+                  oninput="calculate()"
+                />
+              </div>
+            </div>
+
+            <!-- Complexity tier -->
+            <div>
+              <label for="complexity" class="block text-sm font-medium text-slate-700 mb-1">
+                Project complexity
+              </label>
+              <p class="text-xs text-slate-500 mb-2">Not sure? Pick <strong>Growth</strong> — it covers most mid-size automation engagements.</p>
+              <select id="complexity" class="input-field" onchange="calculate()">
+                <option value="starter">Starter — Simple workflows, 1–2 processes (4–8 weeks)</option>
+                <option value="growth" selected>Growth — Multi-step automation + AI integration (2–4 months)</option>
+                <option value="enterprise">Enterprise — Custom AI agents &amp; full integration (4–6+ months)</option>
+              </select>
+            </div>
+
+          </div><!-- /grid gap-5 -->
+
+          <!-- Assumption note -->
+          <p class="mt-6 text-xs text-slate-400">
+            * Calculator assumes 80% automation efficiency — a conservative industry benchmark. Actual results vary by process complexity and adoption rate.
+          </p>
+        </div><!-- /inputs -->
+
+        <!-- ── RIGHT: Results ── -->
+        <div id="resultsPanel" class="flex flex-col gap-4">
+
+          <!-- Empty state: shown until user enters data -->
+          <div id="resultsEmpty" class="rounded-2xl border border-dashed border-slate-200 bg-white p-10 flex flex-col items-center justify-center text-center gap-3 min-h-64">
+            <div class="h-14 w-14 rounded-full bg-sky-50 border border-sky-100 flex items-center justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-sky-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+              </svg>
+            </div>
+            <p class="font-semibold text-slate-700">Your results will appear here</p>
+            <p class="text-sm text-slate-400 max-w-xs">Fill in the fields on the left to instantly see your annual cost, projected savings, and estimated ROI.</p>
+          </div>
+
+          <!-- Calculated results: hidden until user enters data -->
+          <div id="resultsContent" class="hidden flex-col gap-4">
+
+            <!-- Headline result -->
+            <div id="cardImpact" class="result-card-highlight rounded-2xl p-6 shadow-md fade-in">
+              <p class="label text-sm font-medium uppercase tracking-widest mb-1">Annual Cost of Doing Nothing</p>
+              <p id="valImpact" class="value text-4xl font-extrabold"></p>
+              <p class="label text-xs mt-2 opacity-80">Total revenue lost + labor wasted per year if nothing changes</p>
+            </div>
+
+            <!-- 3-col stat cards -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+
+              <div class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+                <p class="text-xs font-medium uppercase tracking-widest text-slate-500 mb-1">Annual Revenue Loss</p>
+                <p id="valRevLoss" class="text-2xl font-bold text-slate-900"></p>
+                <p class="text-xs text-slate-400 mt-1">From churn, errors & missed deals</p>
+              </div>
+
+              <div class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+                <p class="text-xs font-medium uppercase tracking-widest text-slate-500 mb-1">Annual Labor Waste</p>
+                <p id="valLaborWaste" class="text-2xl font-bold text-slate-900"></p>
+                <p class="text-xs text-slate-400 mt-1">Employee time on manual tasks</p>
+              </div>
+
+              <div class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+                <p class="text-xs font-medium uppercase tracking-widest text-slate-500 mb-1">Projected Savings/yr</p>
+                <p id="valSavings" class="text-2xl font-bold text-sky-600"></p>
+                <p class="text-xs text-slate-400 mt-1">After automation (80% efficiency)</p>
+              </div>
+
+            </div>
+
+            <!-- Investment + ROI row -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+              <div class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+                <p class="text-xs font-medium uppercase tracking-widest text-slate-500 mb-1">Ballpark Project Investment</p>
+                <p id="valProjectCost" class="text-xl font-bold text-slate-900"></p>
+                <p id="valTier" class="text-xs text-slate-400 mt-1"></p>
+              </div>
+
+              <div class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+                <p class="text-xs font-medium uppercase tracking-widest text-slate-500 mb-1">Estimated Payback Period</p>
+                <p id="valPayback" class="text-xl font-bold text-slate-900"></p>
+                <p class="text-xs text-slate-400 mt-1">Months to recover project cost</p>
+              </div>
+
+            </div>
+
+            <!-- ROI -->
+            <div class="rounded-2xl border border-sky-200 bg-sky-50 p-5">
+              <div class="flex items-center justify-between gap-4">
+                <div>
+                  <p class="text-xs font-medium uppercase tracking-widest text-sky-700 mb-1">Estimated First-Year ROI</p>
+                  <p id="valROI" class="text-3xl font-extrabold text-sky-700"></p>
+                  <p class="text-xs text-slate-500 mt-1">(Projected savings − project cost) ÷ project cost</p>
+                </div>
+                <div class="hidden sm:flex h-16 w-16 rounded-full bg-sky-100 border border-sky-200 items-center justify-center flex-shrink-0">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-sky-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+          </div><!-- /resultsContent -->
+
+          <!-- What's included by tier: always visible -->
+          <div id="tierDetail" class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+            <p class="text-xs font-medium uppercase tracking-widest text-slate-500 mb-2">What's Typically Included</p>
+            <ul id="tierList" class="text-sm text-slate-600 space-y-1"></ul>
+          </div>
+
+        </div><!-- /results -->
+      </div><!-- /grid -->
+
+      <!-- Disclaimer -->
+      <p class="mt-8 text-xs text-center text-slate-400 max-w-3xl mx-auto">
+        All figures are illustrative estimates based on the inputs you provide and industry benchmarks. They are not a formal quote or guarantee. Request a free consultation for a tailored proposal.
+      </p>
+    </div>
+  </section>
+
+  <!-- CTA Band -->
+  <section class="cta-gradient py-16">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="rounded-3xl bg-slate-900 text-white p-8 md:p-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 shadow-lg">
+        <div class="max-w-2xl">
+          <h2 class="text-2xl md:text-3xl font-bold">Your numbers tell a story. Let's write the next chapter.</h2>
+          <p class="mt-2 text-slate-300">Get a free 30-minute consultation and a real project estimate — no commitment, no pressure.</p>
+        </div>
+        <a
+          href="https://novapraxima.com/contact.html"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center justify-center rounded-xl bg-white text-slate-900 px-6 py-3 font-semibold shadow hover:shadow-lg whitespace-nowrap"
+        >
+          Book a Free Consultation →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-200">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 text-sm text-slate-600 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <p>© <span id="year"></span> NovaPraxima Consulting LLC. All rights reserved.</p>
+      <nav class="flex items-center gap-4">
+        <a href="about.html" class="hover:text-slate-900">About</a>
+        <a href="services.html" class="hover:text-slate-900">Services</a>
+        <a href="careers.html" class="hover:text-slate-900">Careers</a>
+        <a href="contact.html" class="hover:text-slate-900">Contact</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    // Footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const TIERS = {
+      starter: {
+        label: 'Starter Automation',
+        range: '$5,000 – $10,000',
+        midpoint: 7500,
+        timeline: '4–8 weeks',
+        items: [
+          '1–2 automated workflows or processes',
+          'Integration with up to 3 existing tools/APIs',
+          'Basic error handling and alerting',
+          'Deployment + handover documentation',
+          'Post-launch support (30 days)',
+        ],
+      },
+      growth: {
+        label: 'Growth Automation',
+        range: '$10,000 – $25,000',
+        midpoint: 17500,
+        timeline: '2–4 months',
+        items: [
+          'Multi-step automation across 3–6 processes',
+          'AI/LLM integration (document processing, triage, summarization)',
+          'Custom dashboards and reporting',
+          'Integrations with CRM, ERP, or core business systems',
+          'User training and change management support',
+          'Post-launch support (60 days)',
+        ],
+      },
+      enterprise: {
+        label: 'Enterprise AI Solution',
+        range: '$25,000 – $60,000+',
+        midpoint: 42500,
+        timeline: '4–6+ months',
+        items: [
+          'Custom AI agents and orchestration architecture',
+          'Full enterprise system integration (SSO, compliance, audit trails)',
+          'Scalable, governed AI platform deployment',
+          'Advanced analytics and ROI measurement dashboards',
+          'Dedicated engagement manager + solution architect',
+          'Ongoing managed support and optimization retainer',
+        ],
+      },
+    };
+
+    function fmt(n) {
+      return '$' + Math.round(n).toLocaleString('en-US');
+    }
+
+    function updateTierList() {
+      const complexity = document.getElementById('complexity').value;
+      const tier = TIERS[complexity];
+      const ul = document.getElementById('tierList');
+      ul.innerHTML = tier.items.map(item =>
+        `<li class="flex items-start gap-2"><svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-sky-500 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>${item}</li>`
+      ).join('');
+    }
+
+    function calculate() {
+      const monthlyLost   = Math.max(0, parseFloat(document.getElementById('monthlyLost').value)   || 0);
+      const hoursWeek     = Math.max(0, parseFloat(document.getElementById('hoursWeek').value)      || 0);
+      const employeeCount = Math.max(0, parseFloat(document.getElementById('employeeCount').value)  || 0);
+      const hourlyRate    = Math.max(0, parseFloat(document.getElementById('hourlyRate').value)      || 0);
+      const complexity    = document.getElementById('complexity').value;
+
+      const tier = TIERS[complexity];
+
+      // Check if user has entered any numeric data
+      const hasInput =
+        document.getElementById('monthlyLost').value !== '' ||
+        document.getElementById('hoursWeek').value !== '' ||
+        document.getElementById('employeeCount').value !== '' ||
+        document.getElementById('hourlyRate').value !== '';
+
+      // Toggle empty state vs results
+      document.getElementById('resultsEmpty').classList.toggle('hidden', hasInput);
+      const content = document.getElementById('resultsContent');
+      if (hasInput) {
+        content.classList.remove('hidden');
+        content.style.display = 'flex';
+      } else {
+        content.classList.add('hidden');
+        content.style.display = '';
+      }
+
+      updateTierList();
+
+      if (!hasInput) return;
+
+      // Core calculations
+      const annualRevLoss    = monthlyLost * 12;
+      const annualLaborWaste = hoursWeek * employeeCount * hourlyRate * 52;
+      const totalImpact      = annualRevLoss + annualLaborWaste;
+      const projSavings      = totalImpact * 0.80;
+      const midpoint         = tier.midpoint;
+      const roi              = midpoint > 0 ? ((projSavings - midpoint) / midpoint) * 100 : null;
+      const paybackMonths    = projSavings > 0 ? (midpoint / (projSavings / 12)) : null;
+
+      document.getElementById('valImpact').textContent     = fmt(totalImpact);
+      document.getElementById('valRevLoss').textContent    = fmt(annualRevLoss);
+      document.getElementById('valLaborWaste').textContent = fmt(annualLaborWaste);
+      document.getElementById('valSavings').textContent    = fmt(projSavings);
+
+      document.getElementById('valProjectCost').textContent = tier.range;
+      document.getElementById('valTier').textContent = tier.label + ' · ' + tier.timeline;
+
+      if (roi !== null) {
+        const roiText = roi >= 0
+          ? '+' + Math.round(roi).toLocaleString('en-US') + '%'
+          : Math.round(roi).toLocaleString('en-US') + '%';
+        document.getElementById('valROI').textContent = roiText;
+        document.getElementById('valROI').style.color = roi >= 0 ? '' : '#ef4444';
+      }
+
+      if (paybackMonths !== null) {
+        const pb = Math.round(paybackMonths);
+        document.getElementById('valPayback').textContent = pb > 36 ? '36+ months' : pb + ' months';
+      } else {
+        document.getElementById('valPayback').textContent = 'N/A';
+      }
+    }
+
+    // Init: populate tier list only, no results shown
+    updateTierList();
+  </script>
+
+</body>
+</html>
