@@ -26,3 +26,100 @@ nav a[data-nav].active{color:rgb(2 132 199);font-weight:600}
 @media (prefers-reduced-motion: reduce) {
   [data-reveal] { opacity: 1; transform: none; transition: none; }
 }
+
+/* ============================================================
+   Shared modern design system (used across all pages)
+   ============================================================ */
+
+/* Aurora gradient section backgrounds */
+.bg-aurora {
+  background:
+    radial-gradient(800px 400px at 0% 0%, rgba(125,211,252,.25), transparent 60%),
+    radial-gradient(700px 400px at 100% 100%, rgba(167,139,250,.18), transparent 60%),
+    radial-gradient(600px 300px at 50% 50%, rgba(244,114,182,.10), transparent 60%),
+    #ffffff;
+}
+.bg-aurora-soft {
+  background:
+    radial-gradient(700px 350px at 100% 0%, rgba(14,165,233,.10), transparent 60%),
+    radial-gradient(700px 350px at 0% 100%, rgba(99,102,241,.08), transparent 60%),
+    #f8fafc;
+}
+
+/* CTA radial wash */
+.cta-gradient {
+  background:
+    radial-gradient(1200px 600px at 10% -20%, rgba(56,189,248,.25), transparent),
+    radial-gradient(1000px 600px at 90% 120%, rgba(14,165,233,.2), transparent);
+}
+
+/* Premium hero text shadow */
+.hero-text-shadow { text-shadow: 0 10px 30px rgba(2, 6, 23, 0.45); }
+
+/* Eyebrow label */
+.eyebrow {
+  font-size: .75rem;
+  text-transform: uppercase;
+  letter-spacing: .15em;
+  font-weight: 700;
+  color: #0284c7;
+}
+.eyebrow-light { color: rgba(186, 230, 253, .95); }
+
+/* Gradient stat / heading number */
+.stat-number {
+  background: linear-gradient(135deg, #0ea5e9 0%, #0369a1 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -0.02em;
+}
+
+/* Modernized card */
+.np-card {
+  border-radius: 1rem;
+  border: 1px solid rgb(226 232 240);
+  background: #fff;
+  padding: 1.5rem;
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+.np-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 38px rgba(2,6,23,.08);
+  border-color: rgb(186 230 253);
+}
+
+/* Colored card top borders (rotate for variety) */
+.np-accent-1 { border-top: 3px solid #0ea5e9; }
+.np-accent-2 { border-top: 3px solid #6366f1; }
+.np-accent-3 { border-top: 3px solid #14b8a6; }
+.np-accent-4 { border-top: 3px solid #f59e0b; }
+.np-accent-5 { border-top: 3px solid #ec4899; }
+.np-accent-6 { border-top: 3px solid #8b5cf6; }
+
+/* Step number badge (used by approach + how-it-works) */
+.step-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 44px; width: 44px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: #fff;
+  background: linear-gradient(135deg, #0ea5e9, #0369a1);
+  box-shadow: 0 8px 20px rgba(14,165,233,.25);
+}
+
+/* Decorative blurred glow helper */
+.glow-spot {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(48px);
+  pointer-events: none;
+  z-index: 0;
+}
+.glow-sky    { background: rgba(56,189,248,.25); }
+.glow-cyan   { background: rgba(34,211,238,.20); }
+.glow-indigo { background: rgba(99,102,241,.20); }
+.glow-pink   { background: rgba(244,114,182,.18); }

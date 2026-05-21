@@ -44,67 +44,88 @@
     </div>
   </header>
 
-  <section class="py-20 bg-slate-50">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <h1 class="text-3xl font-bold">Industries</h1>
-      <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        <div class="rounded-2xl border border-slate-200 p-6 bg-white">
-          <h3 class="font-semibold">Healthcare</h3>
+  <!-- Hero -->
+  <section class="gradient-bg text-white relative overflow-hidden">
+    <div aria-hidden="true" class="glow-spot glow-sky -top-24 -right-24 h-96 w-96"></div>
+    <div aria-hidden="true" class="glow-spot glow-cyan -bottom-24 -left-24 h-96 w-96"></div>
+    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
+      <div class="max-w-3xl" data-reveal>
+        <p class="eyebrow eyebrow-light">Industries we serve</p>
+        <h1 class="mt-3 text-4xl sm:text-5xl font-extrabold leading-tight hero-text-shadow">Domain depth across regulated &amp; complex sectors.</h1>
+        <p class="mt-4 text-lg text-sky-100">Decades of pattern recognition from delivering AI &amp; automation to the world&rsquo;s most demanding industries &mdash; with the compliance, data, and governance posture each one requires.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Industries grid -->
+  <section class="bg-aurora-soft relative overflow-hidden py-20">
+    <div aria-hidden="true" class="glow-spot glow-indigo top-1/4 -left-32 h-80 w-80"></div>
+    <div aria-hidden="true" class="glow-spot glow-pink bottom-0 -right-32 h-80 w-80"></div>
+
+    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl" data-reveal>
+        <p class="eyebrow">Where we deliver</p>
+        <h2 class="mt-2 text-3xl font-bold text-slate-900">Six industries. Hundreds of use cases.</h2>
+      </div>
+
+      <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3" data-reveal>
+        <div class="np-card np-accent-1">
+          <h3 class="text-lg font-semibold text-slate-900">Healthcare</h3>
           <p class="mt-2 text-slate-600">PHI-safe designs for patient access and clinical ops.</p>
-          <ul class="mt-3 list-disc pl-5 text-slate-600">
-            <li>Patient intake assistant that pre-screens forms and schedules appointments.</li>
-            <li>Clinical documentation copilot that drafts visit notes from transcripts.</li>
-            <li>Revenue cycle automation for eligibility checks and claim status.</li>
+          <ul class="mt-4 space-y-2 text-sm text-slate-600">
+            <li class="flex gap-2"><span class="text-sky-600 mt-0.5">&#9656;</span>Patient intake assistant that pre-screens forms and schedules appointments.</li>
+            <li class="flex gap-2"><span class="text-sky-600 mt-0.5">&#9656;</span>Clinical documentation copilot that drafts visit notes from transcripts.</li>
+            <li class="flex gap-2"><span class="text-sky-600 mt-0.5">&#9656;</span>Revenue cycle automation for eligibility checks and claim status.</li>
           </ul>
         </div>
 
-        <div class="rounded-2xl border border-slate-200 p-6 bg-white">
-          <h3 class="font-semibold">Financial Services</h3>
+        <div class="np-card np-accent-2">
+          <h3 class="text-lg font-semibold text-slate-900">Financial Services</h3>
           <p class="mt-2 text-slate-600">KYC/AML, advisor productivity, compliant automation.</p>
-          <ul class="mt-3 list-disc pl-5 text-slate-600">
-            <li>KYC onboarding assistant with document verification and risk flags.</li>
-            <li>Advisor prep briefs that summarize portfolio and recent client signals.</li>
-            <li>Claims and dispute triage with human-in-the-loop approvals.</li>
+          <ul class="mt-4 space-y-2 text-sm text-slate-600">
+            <li class="flex gap-2"><span class="text-indigo-600 mt-0.5">&#9656;</span>KYC onboarding assistant with document verification and risk flags.</li>
+            <li class="flex gap-2"><span class="text-indigo-600 mt-0.5">&#9656;</span>Advisor prep briefs that summarize portfolio and recent client signals.</li>
+            <li class="flex gap-2"><span class="text-indigo-600 mt-0.5">&#9656;</span>Claims and dispute triage with human-in-the-loop approvals.</li>
           </ul>
         </div>
 
-        <div class="rounded-2xl border border-slate-200 p-6 bg-white">
-          <h3 class="font-semibold">Manufacturing</h3>
+        <div class="np-card np-accent-3">
+          <h3 class="text-lg font-semibold text-slate-900">Manufacturing</h3>
           <p class="mt-2 text-slate-600">Asset tracking, quality gates, shop-floor digitization.</p>
-          <ul class="mt-3 list-disc pl-5 text-slate-600">
-            <li>Digital work instructions with step-by-step guidance and safety checks.</li>
-            <li>Supplier portal that automates RFQs and purchase order updates.</li>
-            <li>Predictive maintenance alerts from sensor data and service logs.</li>
+          <ul class="mt-4 space-y-2 text-sm text-slate-600">
+            <li class="flex gap-2"><span class="text-teal-600 mt-0.5">&#9656;</span>Digital work instructions with step-by-step guidance and safety checks.</li>
+            <li class="flex gap-2"><span class="text-teal-600 mt-0.5">&#9656;</span>Supplier portal that automates RFQs and purchase order updates.</li>
+            <li class="flex gap-2"><span class="text-teal-600 mt-0.5">&#9656;</span>Predictive maintenance alerts from sensor data and service logs.</li>
           </ul>
         </div>
 
-        <div class="rounded-2xl border border-slate-200 p-6 bg-white">
-          <h3 class="font-semibold">Professional Services</h3>
+        <div class="np-card np-accent-4">
+          <h3 class="text-lg font-semibold text-slate-900">Professional Services</h3>
           <p class="mt-2 text-slate-600">Proposal automation, matter management, research assistants.</p>
-          <ul class="mt-3 list-disc pl-5 text-slate-600">
-            <li>Proposal generator that assembles SOWs from past engagements.</li>
-            <li>Knowledge search over deliverables and emails with source citations.</li>
-            <li>Resource staffing assistant that matches skills to projects.</li>
+          <ul class="mt-4 space-y-2 text-sm text-slate-600">
+            <li class="flex gap-2"><span class="text-amber-600 mt-0.5">&#9656;</span>Proposal generator that assembles SOWs from past engagements.</li>
+            <li class="flex gap-2"><span class="text-amber-600 mt-0.5">&#9656;</span>Knowledge search over deliverables and emails with source citations.</li>
+            <li class="flex gap-2"><span class="text-amber-600 mt-0.5">&#9656;</span>Resource staffing assistant that matches skills to projects.</li>
           </ul>
         </div>
 
-        <div class="rounded-2xl border border-slate-200 p-6 bg-white">
-          <h3 class="font-semibold">Real Estate</h3>
+        <div class="np-card np-accent-5">
+          <h3 class="text-lg font-semibold text-slate-900">Real Estate</h3>
           <p class="mt-2 text-slate-600">Property analysis, tenant workflows, field-ops automations.</p>
-          <ul class="mt-3 list-disc pl-5 text-slate-600">
-            <li>Lead qualification assistant that routes high-intent inquiries.</li>
-            <li>Property dossier builder with comps, zoning, and permit history.</li>
-            <li>Lease abstraction from PDFs into structured fields.</li>
+          <ul class="mt-4 space-y-2 text-sm text-slate-600">
+            <li class="flex gap-2"><span class="text-pink-600 mt-0.5">&#9656;</span>Lead qualification assistant that routes high-intent inquiries.</li>
+            <li class="flex gap-2"><span class="text-pink-600 mt-0.5">&#9656;</span>Property dossier builder with comps, zoning, and permit history.</li>
+            <li class="flex gap-2"><span class="text-pink-600 mt-0.5">&#9656;</span>Lease abstraction from PDFs into structured fields.</li>
           </ul>
         </div>
 
-        <div class="rounded-2xl border border-slate-200 p-6 bg-white">
-          <h3 class="font-semibold">Retail</h3>
+        <div class="np-card np-accent-6">
+          <h3 class="text-lg font-semibold text-slate-900">Retail</h3>
           <p class="mt-2 text-slate-600">Customer service agents, returns automation, insights.</p>
-          <ul class="mt-3 list-disc pl-5 text-slate-600">
-            <li>Product Q&A assistant that reduces returns and boosts conversion.</li>
-            <li>Store ops copilot for task lists, audits, and loss prevention.</li>
-            <li>Personalized promotions using RFM and real-time inventory.</li>
+          <ul class="mt-4 space-y-2 text-sm text-slate-600">
+            <li class="flex gap-2"><span class="text-violet-600 mt-0.5">&#9656;</span>Product Q&amp;A assistant that reduces returns and boosts conversion.</li>
+            <li class="flex gap-2"><span class="text-violet-600 mt-0.5">&#9656;</span>Store ops copilot for task lists, audits, and loss prevention.</li>
+            <li class="flex gap-2"><span class="text-violet-600 mt-0.5">&#9656;</span>Personalized promotions using RFM and real-time inventory.</li>
           </ul>
         </div>
       </div>
@@ -113,10 +134,11 @@
 
   <footer class="border-t border-slate-200">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 text-sm text-slate-600 flex flex-col sm:flex-row items-center justify-between gap-3">
-      <p>© <span id="year">2025</span> NovaPraxima Consulting LLC. All rights reserved.</p>
+      <p>&copy; <span id="year">2025</span> NovaPraxima Consulting LLC. All rights reserved.</p>
       <nav class="flex items-center gap-4">
         <a href="about.html" class="hover:text-slate-900">About</a>
         <a href="services.html" class="hover:text-slate-900">Services</a>
+        <a href="careers.html" class="hover:text-slate-900">Careers</a>
         <a href="contact.html" class="hover:text-slate-900">Contact</a>
       </nav>
     </div>

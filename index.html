@@ -10,11 +10,11 @@ rel="canonical" href="https://www.novapraxima.com/" />
   <title>NovaPraxima Consulting —
 AI, Automation & Modern Apps</title>
   <meta name="description"
-content="NovaPraxima Consulting helps enterprises design, deploy, and scale AI, automation, and modern applications with governance, security, and measurable business outcomes." />
+content="NovaPraxima Consulting helps enterprises design, deploy, and scale AI, Automation, and modern applications with governance, security, and measurable business outcomes." />
   <meta property="og:title" content="NovaPraxima
 Consulting — AI, Automation & Modern Apps" />
   <meta property="og:description"
-content="From strategy to production: enterprise AI assistants, intelligent automation, and modern applications built for measurable impact." />
+content="From strategy to production: enterprise AI assistants, intelligent Automation, and modern applications built for measurable impact." />
   <meta property="og:type"
 content="website" />
   <meta property="og:url" content="https://www.novapraxima.com/" />
@@ -34,6 +34,107 @@ src="/assets/site.js"></script>
 scrollLeft { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
     .animate-scroll-slow { animation: scrollLeft 22s linear infinite; }
+    .animate-scroll-tech { animation: scrollLeft 45s linear infinite; }
+    .animate-scroll-tech-rev { animation: scrollLeft 55s linear infinite reverse; }
+    .tech-marquee:hover .animate-scroll-tech,
+    .tech-marquee:hover .animate-scroll-tech-rev { animation-play-state: paused; }
+
+    /* Industry cards — high-res imagery */
+    .industry-card {
+      position: relative;
+      display: block;
+      overflow: hidden;
+      border-radius: 1rem;
+      aspect-ratio: 4 / 5;
+      box-shadow: 0 10px 30px -12px rgba(2, 23, 54, 0.25);
+      transition: transform .4s ease, box-shadow .4s ease;
+      isolation: isolate;
+    }
+    .industry-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 24px 50px -16px rgba(2, 23, 54, 0.4);
+    }
+    .industry-card img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .8s ease, filter .4s ease;
+      z-index: 0;
+    }
+    .industry-card:hover img {
+      transform: scale(1.08);
+      filter: saturate(1.15);
+    }
+    .industry-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(2, 23, 54, 0.15) 0%, rgba(2, 23, 54, 0.55) 55%, rgba(2, 23, 54, 0.92) 100%);
+      z-index: 1;
+      transition: background .4s ease;
+    }
+    .industry-card:hover .industry-overlay {
+      background: linear-gradient(180deg, rgba(2, 23, 54, 0.25) 0%, rgba(3, 105, 161, 0.55) 50%, rgba(2, 23, 54, 0.95) 100%);
+    }
+    .industry-content {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 1.5rem;
+      color: #fff;
+    }
+    .industry-tag {
+      display: inline-flex;
+      align-items: center;
+      align-self: flex-start;
+      padding: .25rem .65rem;
+      font-size: .7rem;
+      font-weight: 700;
+      letter-spacing: .15em;
+      border-radius: 9999px;
+      background: rgba(255, 255, 255, 0.18);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      margin-bottom: .75rem;
+    }
+    .industry-content h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      line-height: 1.2;
+      text-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+    }
+    .industry-content p {
+      margin-top: .5rem;
+      font-size: .9rem;
+      color: rgba(255, 255, 255, 0.88);
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      transition: max-height .45s ease, opacity .35s ease, margin-top .35s ease;
+    }
+    .industry-card:hover .industry-content p {
+      max-height: 6rem;
+      opacity: 1;
+    }
+
+    /* Tech logo tiles — full brand color */
+    .tech-logo {
+      height: 36px;
+      width: auto;
+      max-width: 150px;
+      object-fit: contain;
+      opacity: .9;
+      transition: opacity .25s ease, transform .25s ease, filter .25s ease;
+    }
+    .tech-logo:hover {
+      opacity: 1;
+      transform: translateY(-2px) scale(1.05);
+      filter: drop-shadow(0 6px 14px rgba(2,6,23,.18));
+    }
 
     /*
 Optional subtle card hover */
@@ -55,6 +156,73 @@ rgba(14,165,233,.2), transparent);
 hero */
     .hero-text-shadow { text-shadow: 0 10px 30px rgba(2, 6, 23, 0.45);
 }
+
+    /* Modern stat number gradient */
+    .stat-number {
+      background: linear-gradient(135deg, #0ea5e9 0%, #0369a1 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: -0.02em;
+    }
+
+    /* How It Works step connector */
+    .step-card { position: relative; }
+    .step-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 44px; width: 44px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: #fff;
+      background: linear-gradient(135deg, #0ea5e9, #0369a1);
+      box-shadow: 0 8px 20px rgba(14,165,233,.25);
+    }
+    @media (min-width: 1024px) {
+      .step-card:not(:last-child)::after {
+        content: "";
+        position: absolute;
+        top: 46px;
+        right: -1.5rem;
+        width: 3rem;
+        height: 2px;
+        background: linear-gradient(90deg, rgba(14,165,233,.5), rgba(14,165,233,0));
+      }
+    }
+
+    /* Colorful section backgrounds */
+    .bg-aurora {
+      background:
+        radial-gradient(800px 400px at 0% 0%, rgba(125,211,252,.25), transparent 60%),
+        radial-gradient(700px 400px at 100% 100%, rgba(167,139,250,.18), transparent 60%),
+        radial-gradient(600px 300px at 50% 50%, rgba(244,114,182,.10), transparent 60%),
+        #ffffff;
+    }
+    .bg-aurora-soft {
+      background:
+        radial-gradient(700px 350px at 100% 0%, rgba(14,165,233,.10), transparent 60%),
+        radial-gradient(700px 350px at 0% 100%, rgba(99,102,241,.08), transparent 60%),
+        #f8fafc;
+    }
+
+    /* Stat tile accent backgrounds */
+    .stat-tile {
+      border-radius: 1rem;
+      padding: 1.25rem 1rem;
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .stat-tile:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(2,6,23,.06); }
+    .stat-tile-1 { background: linear-gradient(135deg, #ecfeff 0%, #ffffff 100%); border: 1px solid #a5f3fc; }
+    .stat-tile-2 { background: linear-gradient(135deg, #eff6ff 0%, #ffffff 100%); border: 1px solid #bfdbfe; }
+    .stat-tile-3 { background: linear-gradient(135deg, #f5f3ff 0%, #ffffff 100%); border: 1px solid #ddd6fe; }
+    .stat-tile-4 { background: linear-gradient(135deg, #ecfdf5 0%, #ffffff 100%); border: 1px solid #a7f3d0; }
+
+    /* Step card accents */
+    .step-card-1 { border-top: 3px solid #0ea5e9; }
+    .step-card-2 { border-top: 3px solid #6366f1; }
+    .step-card-3 { border-top: 3px solid #14b8a6; }
   </style>
 </head>
 
@@ -159,7 +327,7 @@ sm:text-5xl font-extrabold leading-tight">
 
         <p class="mt-4 text-lg text-sky-100 max-w-2xl">
           We partner with executive teams to modernize operations through enterprise AI,
-      intelligent automation, and resilient applications. Every engagement is structured
+      intelligent Automation, and resilient applications. Every engagement is structured
       for business value, risk control, and long-term operating excellence.
         </p>
 
@@ -175,6 +343,11 @@ rounded-xl bg-white text-slate-900 px-6 py-3 font-semibold shadow hover:shadow-l
 border-white/40 px-6 py-3 font-semibold hover:bg-white/10">
             Explore services
           </a>
+        </div>
+
+        <div class="mt-6 inline-flex items-center gap-3 rounded-full bg-white/10 border border-white/20 px-4 py-2 text-sm backdrop-blur">
+          <span class="inline-flex h-2 w-2 rounded-full bg-emerald-400 shadow-[0_0_10px_rgba(52,211,153,.8)]"></span>
+          <span class="text-sky-50">800+ projects delivered &middot; Trusted by 100+ Global Enterprise Customers &middot; Serving all 5 Continents</span>
         </div>
 
         <div class="mt-8 flex flex-wrap gap-2
@@ -204,6 +377,30 @@ border border-white/15 px-4 py-2">Measurable ROI</span>
           <p class="mt-4 text-sm text-sky-100/90">
             See how we help enterprises translate AI strategy into production outcomes with strong governance, operational reliability, and measurable impact.
           </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust / Stats band -->
+  <section class="relative -mt-px border-y border-slate-200 bg-aurora">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14">
+      <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4 text-center" data-reveal>
+        <div class="stat-tile stat-tile-1">
+          <div class="stat-number text-4xl sm:text-5xl font-extrabold">800+</div>
+          <p class="mt-2 text-sm font-medium text-slate-600">AI &amp; Automation projects delivered</p>
+        </div>
+        <div class="stat-tile stat-tile-2">
+          <div class="stat-number text-4xl sm:text-5xl font-extrabold">5</div>
+          <p class="mt-2 text-sm font-medium text-slate-600">Continents served</p>
+        </div>
+        <div class="stat-tile stat-tile-3">
+          <div class="stat-number text-4xl sm:text-5xl font-extrabold">100+</div>
+          <p class="mt-2 text-sm font-medium text-slate-600">Trusted customers &amp; growing</p>
+        </div>
+        <div class="stat-tile stat-tile-4">
+          <div class="stat-number text-4xl sm:text-5xl font-extrabold">99.9%</div>
+          <p class="mt-2 text-sm font-medium text-slate-600">Production uptime across deployments</p>
         </div>
       </div>
     </div>
@@ -257,62 +454,205 @@ Analytics</h3>
     </div>
   </section>
 
-  <!-- Industries
-marquee -->
-  <section class="bg-slate-50">
-    <div class="mx-auto max-w-7xl px-4
-sm:px-6 lg:px-8 py-12">
-      <p class="text-center text-sm uppercase
-tracking-widest text-slate-500">
+  <!-- How It Works -->
+  <section class="bg-aurora-soft py-20">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mx-auto text-center" data-reveal>
+        <p class="text-sm uppercase tracking-widest text-sky-600 font-semibold">How It Works</p>
+        <h2 class="mt-2 text-3xl font-bold text-slate-900">From conversation to production in three clear steps</h2>
+        <p class="mt-3 text-slate-600">A transparent, low-friction engagement process designed to align fast, scope precisely, and deliver with you, not at you.</p>
+      </div>
+
+      <div class="mt-12 grid gap-8 lg:gap-12 md:grid-cols-3" data-reveal>
+        <div class="step-card step-card-1 rounded-2xl border border-slate-200 bg-white p-8 shadow-sm hover:shadow-md transition-shadow">
+          <div class="flex items-center gap-4">
+            <div class="step-num">1</div>
+            <div class="text-xs font-semibold uppercase tracking-widest text-slate-500">Discover</div>
+          </div>
+          <h3 class="mt-5 text-lg font-semibold text-slate-900">Schedule a call</h3>
+          <p class="mt-2 text-slate-600">Book a no-pressure conversation to discuss your project, objectives, current systems, and the outcomes that matter most to your business.</p>
+        </div>
+
+        <div class="step-card step-card-2 rounded-2xl border border-slate-200 bg-white p-8 shadow-sm hover:shadow-md transition-shadow">
+          <div class="flex items-center gap-4">
+            <div class="step-num" style="background:linear-gradient(135deg,#6366f1,#4338ca);box-shadow:0 8px 20px rgba(99,102,241,.25);">2</div>
+            <div class="text-xs font-semibold uppercase tracking-widest text-slate-500">Propose</div>
+          </div>
+          <h3 class="mt-5 text-lg font-semibold text-slate-900">Get a custom proposal</h3>
+          <p class="mt-2 text-slate-600">We deliver a tailored solution design with clear scope, milestones, and fully transparent pricing &mdash; no surprises, no inflated retainers.</p>
+        </div>
+
+        <div class="step-card step-card-3 rounded-2xl border border-slate-200 bg-white p-8 shadow-sm hover:shadow-md transition-shadow">
+          <div class="flex items-center gap-4">
+            <div class="step-num" style="background:linear-gradient(135deg,#14b8a6,#0f766e);box-shadow:0 8px 20px rgba(20,184,166,.25);">3</div>
+            <div class="text-xs font-semibold uppercase tracking-widest text-slate-500">Build</div>
+          </div>
+          <h3 class="mt-5 text-lg font-semibold text-slate-900">We build &mdash; with you in the loop</h3>
+          <p class="mt-2 text-slate-600">We start the build immediately, keeping you involved and informed of every decision through frequent demos, status checkpoints, and shared workspaces.</p>
+        </div>
+      </div>
+
+      <div class="mt-12 text-center">
+        <a href="contact.html" class="inline-flex items-center justify-center rounded-xl bg-slate-900 text-white px-6 py-3 font-semibold hover:bg-slate-800 shadow-sm hover:shadow">
+          Schedule your call &rarr;
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Industries grid with high-res imagery -->
+  <section class="bg-slate-50 relative overflow-hidden">
+    <div aria-hidden="true" class="absolute -top-20 -left-20 h-72 w-72 rounded-full bg-sky-200/40 blur-3xl"></div>
+    <div aria-hidden="true" class="absolute -bottom-20 -right-20 h-72 w-72 rounded-full bg-indigo-200/40 blur-3xl"></div>
+
+    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
+      <p class="text-center text-sm uppercase tracking-widest text-sky-600 font-semibold">
         Industries we serve
       </p>
-      <div
-class="mt-6">
-        <div class="rounded-2xl border border-slate-200 bg-white p-6">
+      <h2 class="mt-2 text-center text-3xl font-bold text-slate-900">Deep expertise across regulated &amp; high-growth sectors</h2>
+      <p class="mt-3 text-center text-slate-600 max-w-2xl mx-auto">
+        From global banks to hospital networks &mdash; we deliver AI and Automation outcomes where compliance, scale, and trust matter most.
+      </p>
+
+      <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" data-reveal>
+        <!-- Financial Services -->
+        <a href="industries.html" class="industry-card group">
+          <img src="https://images.unsplash.com/photo-1518186285589-2f7649de83e0?auto=format&fit=crop&w=1200&q=80" alt="Financial Services" loading="lazy" />
+          <div class="industry-overlay"></div>
+          <div class="industry-content">
+            <span class="industry-tag">01</span>
+            <h3>Financial Services</h3>
+            <p>Risk, fraud detection, and intelligent client servicing for banks &amp; capital markets.</p>
+          </div>
+        </a>
+
+        <!-- Insurance -->
+        <a href="industries.html" class="industry-card group">
+          <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1200&q=80" alt="Insurance" loading="lazy" />
+          <div class="industry-overlay"></div>
+          <div class="industry-content">
+            <span class="industry-tag">02</span>
+            <h3>Insurance</h3>
+            <p>Claims automation, underwriting copilots, and policy intelligence at scale.</p>
+          </div>
+        </a>
+
+        <!-- Healthcare -->
+        <a href="industries.html" class="industry-card group">
+          <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1200&q=80" alt="Healthcare" loading="lazy" />
+          <div class="industry-overlay"></div>
+          <div class="industry-content">
+            <span class="industry-tag">03</span>
+            <h3>Healthcare</h3>
+            <p>HIPAA-aware AI for clinical documentation, patient experience, and operations.</p>
+          </div>
+        </a>
+
+        <!-- Energy -->
+        <a href="industries.html" class="industry-card group">
+          <img src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&w=1200&q=80" alt="Energy" loading="lazy" />
+          <div class="industry-overlay"></div>
+          <div class="industry-content">
+            <span class="industry-tag">04</span>
+            <h3>Energy &amp; Utilities</h3>
+            <p>Predictive maintenance, field-ops automation, and grid intelligence solutions.</p>
+          </div>
+        </a>
+
+        <!-- Retail -->
+        <a href="industries.html" class="industry-card group">
+          <img src="https://images.unsplash.com/photo-1481437156560-3205f6a55735?auto=format&fit=crop&w=1200&q=80" alt="Retail" loading="lazy" />
+          <div class="industry-overlay"></div>
+          <div class="industry-content">
+            <span class="industry-tag">05</span>
+            <h3>Retail &amp; E-commerce</h3>
+            <p>Personalization engines, demand forecasting, and end-to-end order automation.</p>
+          </div>
+        </a>
+
+        <!-- Education -->
+        <a href="industries.html" class="industry-card group">
+          <img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?auto=format&fit=crop&w=1200&q=80" alt="Education" loading="lazy" />
+          <div class="industry-overlay"></div>
+          <div class="industry-content">
+            <span class="industry-tag">06</span>
+            <h3>Education</h3>
+            <p>AI tutors, adaptive learning, and administrative workflow automation for institutions.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technologies marquee -->
+  <section class="bg-white relative overflow-hidden">
+    <div aria-hidden="true" class="absolute -top-24 left-1/4 h-72 w-72 rounded-full bg-sky-200/30 blur-3xl"></div>
+    <div aria-hidden="true" class="absolute -bottom-24 right-1/4 h-72 w-72 rounded-full bg-indigo-200/30 blur-3xl"></div>
+
+    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
+      <p class="text-center text-sm uppercase tracking-widest text-sky-600 font-semibold">
+        Technologies we work with
+      </p>
+      <h2 class="mt-2 text-center text-3xl font-bold text-slate-900">A modern stack for AI &amp; Automation</h2>
+      <p class="mt-3 text-center text-slate-600 max-w-2xl mx-auto">
+        Best-in-class platforms we design, integrate, and operate for our clients.
+      </p>
+
+      <div class="mt-10 space-y-5">
+        <!-- Row 1: AI & Cloud platforms (scrolls left) -->
+        <div class="tech-marquee rounded-2xl border border-slate-200 bg-gradient-to-r from-sky-50/60 via-white to-indigo-50/60 p-6">
           <div class="relative overflow-hidden">
-            <div
-class="pointer-events-none absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-white
-to-transparent"></div>
-            <div class="pointer-events-none absolute inset-y-0
-right-0 w-16 bg-gradient-to-l from-white to-transparent"></div>
+            <div class="pointer-events-none absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-white to-transparent z-10"></div>
+            <div class="pointer-events-none absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-white to-transparent z-10"></div>
 
-            <div
-class="flex items-center gap-6 animate-scroll-slow will-change-transform
-whitespace-nowrap">
-              <span class="inline-flex items-center rounded-full
-border border-slate-200 bg-slate-50 px-5 py-2 text-sm font-medium
-text-slate-700">Financial Services</span>
-              <span class="inline-flex items-center
-rounded-full border border-slate-200 bg-slate-50 px-5 py-2 text-sm font-medium
-text-slate-700">Insurance</span>
-              <span class="inline-flex items-center
-rounded-full border border-slate-200 bg-slate-50 px-5 py-2 text-sm font-medium
-text-slate-700">Healthcare</span>
-              <span class="inline-flex
-items-center rounded-full border border-slate-200 bg-slate-50 px-5 py-2 text-sm
-font-medium text-slate-700">Energy</span>
-              <span class="inline-flex
-items-center rounded-full border border-slate-200 bg-slate-50 px-5 py-2 text-sm
-font-medium text-slate-700">Retail</span>
-              <span class="inline-flex
-items-center rounded-full border border-slate-200 bg-slate-50 px-5 py-2 text-sm
-font-medium text-slate-700">Education</span>
+            <div class="flex items-center gap-14 sm:gap-20 animate-scroll-tech will-change-transform whitespace-nowrap py-2">
+              <!-- Set 1 -->
+              <img src="https://cdn.simpleicons.org/microsoft" alt="Microsoft" class="tech-logo" loading="lazy" />
+              <img src="https://cdn.simpleicons.org/google/4285F4" alt="Google" class="tech-logo" loading="lazy" />
+              <img src="https://logo.clearbit.com/aws.amazon.com" alt="AWS" class="tech-logo" loading="lazy" />
+              <img src="https://cdn.simpleicons.org/anthropic/D97757" alt="Anthropic" class="tech-logo" loading="lazy" />
+              <img src="https://logo.clearbit.com/openai.com" alt="OpenAI" class="tech-logo" loading="lazy" />
+              <img src="https://cdn.simpleicons.org/elevenlabs" alt="ElevenLabs" class="tech-logo" loading="lazy" />
+              <img src="https://cdn.simpleicons.org/vercel" alt="Vercel" class="tech-logo" loading="lazy" />
+              <!-- Set 2 (duplicate for seamless loop) -->
+              <img src="https://cdn.simpleicons.org/microsoft" alt="" aria-hidden="true" class="tech-logo" loading="lazy" />
+              <img src="https://cdn.simpleicons.org/google/4285F4" alt="" aria-hidden="true" class="tech-logo" loading="lazy" />
+              <img src="https://logo.clearbit.com/aws.amazon.com" alt="" aria-hidden="true" class="tech-logo" loading="lazy" />
+              <img src="https://cdn.simpleicons.org/anthropic/D97757" alt="" aria-hidden="true" class="tech-logo" loading="lazy" />
+              <img src="https://logo.clearbit.com/openai.com" alt="" aria-hidden="true" class="tech-logo" loading="lazy" />
+              <img src="https://cdn.simpleicons.org/elevenlabs" alt="" aria-hidden="true" class="tech-logo" loading="lazy" />
+              <img src="https://cdn.simpleicons.org/vercel" alt="" aria-hidden="true" class="tech-logo" loading="lazy" />
+            </div>
+          </div>
+        </div>
 
-              <span class="inline-flex
-items-center rounded-full border border-slate-200 bg-slate-50 px-5 py-2 text-sm
-font-medium text-slate-700">Financial Services</span>
-              <span
-class="inline-flex items-center rounded-full border border-slate-200 bg-slate-50 px-5
-py-2 text-sm font-medium text-slate-700">Insurance</span>
-              <span
-class="inline-flex items-center rounded-full border border-slate-200 bg-slate-50
-px-5 py-2 text-sm font-medium text-slate-700">Healthcare</span>
-              <span class="inline-flex items-center rounded-full border border-slate-200
-bg-slate-50 px-5 py-2 text-sm font-medium text-slate-700">Energy</span>
-              <span class="inline-flex items-center rounded-full border border-slate-200
-bg-slate-50 px-5 py-2 text-sm font-medium text-slate-700">Retail</span>
-              <span class="inline-flex items-center rounded-full border border-slate-200
-bg-slate-50 px-5 py-2 text-sm font-medium text-slate-700">Education</span>
+        <!-- Row 2: Automation & App stack (scrolls right) -->
+        <div class="tech-marquee rounded-2xl border border-slate-200 bg-gradient-to-r from-emerald-50/60 via-white to-sky-50/60 p-6">
+          <div class="relative overflow-hidden">
+            <div class="pointer-events-none absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-white to-transparent z-10"></div>
+            <div class="pointer-events-none absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-white to-transparent z-10"></div>
+
+            <div class="flex items-center gap-14 sm:gap-20 animate-scroll-tech-rev will-change-transform whitespace-nowrap py-2">
+              <!-- Set 1 -->
+              <img src="https://cdn.simpleicons.org/n8n/EA4B71" alt="n8n" class="tech-logo" loading="lazy" />
+              <img src="https://cdn.simpleicons.org/zapier/FF4F00" alt="Zapier" class="tech-logo" loading="lazy" />
+              <img src="https://cdn.simpleicons.org/make/6D00CC" alt="Make.com" class="tech-logo" loading="lazy" />
+              <img src="https://cdn.simpleicons.org/uipath/FA4616" alt="UiPath" class="tech-logo" loading="lazy" />
+              <img src="https://logo.clearbit.com/bubble.io" alt="Bubble" class="tech-logo" loading="lazy" />
+              <img src="https://cdn.simpleicons.org/supabase/3FCF8E" alt="Supabase" class="tech-logo" loading="lazy" />
+              <img src="https://logo.clearbit.com/java.com" alt="Java" class="tech-logo" loading="lazy" />
+              <img src="https://cdn.simpleicons.org/react/61DAFB" alt="React" class="tech-logo" loading="lazy" />
+              <img src="https://cdn.simpleicons.org/nextdotjs" alt="Next.js" class="tech-logo" loading="lazy" />
+              <!-- Set 2 (duplicate for seamless loop) -->
+              <img src="https://cdn.simpleicons.org/n8n/EA4B71" alt="" aria-hidden="true" class="tech-logo" loading="lazy" />
+              <img src="https://cdn.simpleicons.org/zapier/FF4F00" alt="" aria-hidden="true" class="tech-logo" loading="lazy" />
+              <img src="https://cdn.simpleicons.org/make/6D00CC" alt="" aria-hidden="true" class="tech-logo" loading="lazy" />
+              <img src="https://cdn.simpleicons.org/uipath/FA4616" alt="" aria-hidden="true" class="tech-logo" loading="lazy" />
+              <img src="https://logo.clearbit.com/bubble.io" alt="" aria-hidden="true" class="tech-logo" loading="lazy" />
+              <img src="https://cdn.simpleicons.org/supabase/3FCF8E" alt="" aria-hidden="true" class="tech-logo" loading="lazy" />
+              <img src="https://logo.clearbit.com/java.com" alt="" aria-hidden="true" class="tech-logo" loading="lazy" />
+              <img src="https://cdn.simpleicons.org/react/61DAFB" alt="" aria-hidden="true" class="tech-logo" loading="lazy" />
+              <img src="https://cdn.simpleicons.org/nextdotjs" alt="" aria-hidden="true" class="tech-logo" loading="lazy" />
             </div>
           </div>
         </div>

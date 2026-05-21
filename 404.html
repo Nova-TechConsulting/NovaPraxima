@@ -1,17 +1,74 @@
-
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Page not found — Nova‑Tech Consulting</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Page not found &mdash; NovaPraxima Consulting</title>
+  <meta name="description" content="The page you are looking for can&rsquo;t be found. Head back to the NovaPraxima Consulting home page." />
+  <link rel="icon" href="/assets/logos/myLogo.jpg">
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="/assets/site.css" />
+  <script defer src="/assets/site.js"></script>
 </head>
-<body class="min-h-screen grid place-items-center bg-slate-50 text-slate-800">
-  <main class="text-center p-8">
-    <h1 class="text-5xl font-extrabold">404</h1>
-    <p class="mt-3">We couldn’t find that page.</p>
-    <a href="index.html" class="mt-6 inline-block rounded-xl bg-sky-600 text-white px-5 py-3">Back home</a>
+<body class="text-slate-800 antialiased min-h-screen flex flex-col">
+
+  <header class="sticky top-0 z-50 bg-white/80 backdrop-blur border-b border-slate-200">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
+      <a href="index.html" class="flex items-center gap-2 font-semibold text-slate-900">
+        <img src="/assets/logos/myLogo.jpg" alt="NovaPraxima Consulting" class="h-10 w-10 rounded-lg object-cover"/> <span>NovaPraxima Consulting</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-6 text-sm">
+        <a data-nav href="services.html">Services</a>
+        <a data-nav href="industries.html">Industries</a>
+        <a data-nav href="approach.html">Approach</a>
+        <a data-nav href="about.html">About</a>
+        <a data-nav href="careers.html">Careers</a>
+        <a data-nav href="contact.html" class="inline-flex items-center rounded-xl border border-slate-300 px-3 py-2 hover:border-sky-600 hover:text-sky-600">Contact</a>
+      </nav>
+      <button id="menuBtn" class="md:hidden inline-flex items-center justify-center p-2 rounded-lg border border-slate-300" aria-label="Open menu">&#9776;</button>
+    </div>
+    <div id="mobileMenu" class="md:hidden hidden border-t border-slate-200">
+      <div class="px-4 py-3 grid gap-2 text-sm">
+        <a data-nav href="services.html" class="py-2">Services</a>
+        <a data-nav href="industries.html" class="py-2">Industries</a>
+        <a data-nav href="approach.html" class="py-2">Approach</a>
+        <a data-nav href="about.html" class="py-2">About</a>
+        <a data-nav href="careers.html" class="py-2">Careers</a>
+        <a data-nav href="contact.html" class="py-2 font-medium text-sky-700">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-1 gradient-bg text-white relative overflow-hidden flex items-center">
+    <div aria-hidden="true" class="glow-spot glow-sky -top-24 -right-24 h-96 w-96"></div>
+    <div aria-hidden="true" class="glow-spot glow-cyan -bottom-24 -left-24 h-96 w-96"></div>
+    <div aria-hidden="true" class="glow-spot glow-indigo top-1/2 left-1/2 h-72 w-72"></div>
+
+    <div class="relative mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-24 text-center">
+      <p class="eyebrow eyebrow-light">Error 404</p>
+      <h1 class="mt-3 text-7xl sm:text-8xl font-extrabold leading-none hero-text-shadow">404</h1>
+      <p class="mt-6 text-2xl font-semibold">We couldn&rsquo;t find that page.</p>
+      <p class="mt-3 text-sky-100">The link may be broken, or the page may have moved. Let&rsquo;s get you back on track.</p>
+
+      <div class="mt-8 flex flex-wrap items-center justify-center gap-3">
+        <a href="index.html" class="inline-flex items-center rounded-xl bg-white text-sky-700 px-5 py-3 font-semibold shadow-lg hover:bg-sky-50 transition">Back home</a>
+        <a href="services.html" class="inline-flex items-center rounded-xl border border-white/40 text-white px-5 py-3 font-semibold hover:bg-white/10 transition">Browse services</a>
+        <a href="contact.html" class="inline-flex items-center rounded-xl border border-white/40 text-white px-5 py-3 font-semibold hover:bg-white/10 transition">Contact us</a>
+      </div>
+    </div>
   </main>
+
+  <footer class="border-t border-slate-200">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 text-sm text-slate-600 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <p>&copy; <span id="year">2025</span> NovaPraxima Consulting LLC. All rights reserved.</p>
+      <nav class="flex items-center gap-4">
+        <a href="about.html" class="hover:text-slate-900">About</a>
+        <a href="services.html" class="hover:text-slate-900">Services</a>
+        <a href="careers.html" class="hover:text-slate-900">Careers</a>
+        <a href="contact.html" class="hover:text-slate-900">Contact</a>
+      </nav>
+    </div>
+  </footer>
+
 </body>
 </html>
